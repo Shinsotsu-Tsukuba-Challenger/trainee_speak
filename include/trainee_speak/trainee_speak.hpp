@@ -8,9 +8,9 @@
 
 #include "rclcpp/rclcpp.hpp"
 
-#include "raspicat_speak2/voice_config.hpp"
+#include "trainee_speak/voice_config.hpp"
 
-namespace raspicat_speak2 {
+namespace trainee_speak {
 
 class RaspicatSpeak2 : public rclcpp::Node {
 public:
@@ -54,6 +54,6 @@ private:
   std::unordered_map<std::string, std::string> speak_list_;
 };
 
-} // namespace raspicat_speak2
+} // namespace trainee_speak
 
 #endif // RaspicatSpeak2__RaspicatSpeak2_HPP_

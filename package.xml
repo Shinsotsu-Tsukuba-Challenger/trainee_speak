@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>raspicat_speak2</name>
+  <name>trainee_speak</name>
   <version>0.0.0</version>
-  <description>The raspicat_speak2 package</description>
+  <description>The trainee_speak package</description>
   <maintainer email="maintainer@email.com">maintainer name</maintainer>
   <license>Apache-2.0</license>
 
