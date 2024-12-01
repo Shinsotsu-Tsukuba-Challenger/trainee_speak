@@ -11,7 +11,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    ros2_cpp_template_dir = get_package_share_directory('raspicat_speak2')
+    ros2_cpp_template_dir = get_package_share_directory('trainee_speak')
     speal_list = os.path.join(
         ros2_cpp_template_dir, 'config', 'speak_list.param.yaml')
     voice_config = os.path.join(
@@ -19,9 +19,9 @@ def generate_launch_description():
 
     launch_node = GroupAction([
         Node(
-            name='raspicat_speak2',
-            package='raspicat_speak2',
-            executable='raspicat_speak2_node',
+            name='trainee_speak',
+            package='trainee_speak',
+            executable='trainee_speak_node',
             arguments=[speal_list],
             parameters=[voice_config],
             output='screen')

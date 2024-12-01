@@ -12,11 +12,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rosbag2_transport/qos.hpp"
 
-#include "raspicat_speak2/raspicat_speak2.hpp"
+#include "trainee_speak/trainee_speak.hpp"
 
 using namespace std::chrono_literals;
 
-namespace raspicat_speak2 {
+namespace trainee_speak {
 
 RaspicatSpeak2::RaspicatSpeak2(const std::string &node_name,
                                const std::string &yaml_path)
@@ -156,15 +156,17 @@ bool RaspicatSpeak2::hasNameInTopic(
 
 void RaspicatSpeak2::speak(const std::string speak_str) {
   std::string open_jtalk =
-      "echo " + speak_str + " | open_jtalk -x " +
+      std::string("PULSE_SINK=$(pactl list sinks short | grep -E 'KT.*USB.*Audio' | awk '{print $2}') && ") +
+      "echo \"" + speak_str + "\" | open_jtalk -x " +
       "/var/lib/mecab/dic/open-jtalk/naist-jdic -m " +
-      ament_index_cpp::get_package_share_directory("raspicat_speak2") +
+      ament_index_cpp::get_package_share_directory("trainee_speak") +
       "/voice_model/" + voc_.voice_model + " -r " +
       std::to_string(voc_.speech_speed_rate) + " -fm " +
       std::to_string(voc_.additional_half_tone) + " -a " +
-      std::to_string(voc_.all_pass_constant) + " -ow /dev/stdout | aplay & ";
+      std::to_string(voc_.all_pass_constant) +
+      " -ow /dev/stdout | paplay --device=$PULSE_SINK &";
   if (system(open_jtalk.c_str()))
     RCLCPP_ERROR(get_logger(), "shell is not available on the system!");
 }
 
-} // namespace raspicat_speak2
+} // namespace trainee_speak
