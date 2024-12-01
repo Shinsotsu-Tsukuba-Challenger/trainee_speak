@@ -1,4 +1,4 @@
-# trainee_speak [![build-test](https://github.com/CIT-Autonomous-Robot-Lab/trainee_speak/actions/workflows/build-test.yaml/badge.svg)](https://github.com/CIT-Autonomous-Robot-Lab/trainee_speak/actions/workflows/build-test.yaml)
+# trainee_speak
 
 ## Overview
 [raspicat_speak](https://github.com/CIT-Autonomous-Robot-Lab/raspicat_speak)のROS 2実装です。
